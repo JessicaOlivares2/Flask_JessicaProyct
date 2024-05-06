@@ -20,4 +20,26 @@ def generos():
     """
     resultado = base_de_datos.execute(consulta)
     lista_de_resultado = resultado.fetchall()
-    return render_template("generos.html",generos=lista_de_resultado)
+    return render_template("genero.html",generos=lista_de_resultado)
+
+@app.route('/album')
+def albums():
+    base_de_datos = db.get_db()
+    consulta = """
+        SELECT Title FROM albums
+        ORDER by Title;
+    """
+    resultado = base_de_datos.execute(consulta)
+    lista_de_resultado = resultado.fetchall()
+    return render_template("album.html",albums=lista_de_resultado)
+
+@app.route('/tracks')
+def musicas():
+    base_de_datos = db.get_db()
+    consulta = """
+       SELECT name FROM tracks
+       ORDER by name;
+    """
+    resultado = base_de_datos.execute(consulta)
+    lista_de_resultado = resultado.fetchall()
+    return render_template("tracks.html",musicas=lista_de_resultado)
