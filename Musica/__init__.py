@@ -11,35 +11,16 @@ with app.app_context() :
 def hello():
     return 'Hello, World!'
 
-@app.route('/generos')
-def generos():
-    base_de_datos = db.get_db()
-    consulta = """
-        SELECT name FROM genres
-        ORDER by name;
-    """
-    resultado = base_de_datos.execute(consulta)
-    lista_de_resultado = resultado.fetchall()
-    return render_template("genero.html",generos=lista_de_resultado)
-
-@app.route('/album')
-def albums():
-    base_de_datos = db.get_db()
-    consulta = """
-        SELECT Title FROM albums
-        ORDER by Title;
-    """
-    resultado = base_de_datos.execute(consulta)
-    lista_de_resultado = resultado.fetchall()
-    return render_template("album.html",albums=lista_de_resultado)
-
-@app.route('/tracks')
+@app.route('/generos/tracks')
 def musicas():
     base_de_datos = db.get_db()
     consulta = """
-       SELECT name FROM tracks
-       ORDER by name;
+       SELECT t.name,p.name as Artista from tracks t
+       JOIN albums a on t.TrackId = a.AlbumId
+       JOIN artists p on a.AlbumId = p.ArtistId
+       ORDER by t.name asc
     """
     resultado = base_de_datos.execute(consulta)
     lista_de_resultado = resultado.fetchall()
     return render_template("tracks.html",musicas=lista_de_resultado)
+

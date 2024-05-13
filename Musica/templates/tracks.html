@@ -1,12 +1,53 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html>
+  <head>
     <title>Musica</title>
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='style.css') }}">
-</head><body>
-    <h1>Musica</h1>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>Musica y Artista</h1>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Artista</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ul>
+            {% for m in musicas %}
+            <tr>
+              <td>{{ m['name']}}</td>
+              <td>{{ m['Artista']}}</td>
+            </tr>
+            {% endfor %}
+          </ul>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
+
+<table class="content-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Artista</th>
+    </tr>
+  </thead>
+  <tbody>
     <ul>
-        {% for m in musicas %}
-        <li>{{ m['name'] }}</li>
-        {% endfor %}
+      {% for m in musicas %}
+      <tr>
+        <td>{{ m['name']}}</td>
+        <td>{{ m['Artista']}}</td>
+      </tr>
+      {% endfor %}
     </ul>
-</body></html>
+  </tbody>
+</table>
