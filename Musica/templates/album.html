@@ -10,3 +10,13 @@
         {% endfor %}
     </ul>
 </body></html>
+</head>
+<body>
+  <h1>Genero {{genero['name']}}</h1>
+  <ul>
+    {% for t in canciones %}
+    <li>{{ t['name'] }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
