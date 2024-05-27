@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Generos</title>
+    <title>Albums</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -12,7 +12,10 @@
     <h1>Albums</h1>
     <ul>
       {% for a in albums %}
-      <li>{{ a['Title'] }}</li>
+      <li>
+      <a href="{{url_for('album.detalle', id=a['AlbumId'])}}">
+        {{ a['Title'] }}
+      </li>
       {% endfor %}
     </ul>
   </body>

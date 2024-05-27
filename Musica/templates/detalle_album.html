@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Albums:</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>album {{albums['Title']}}</h1>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>artista:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ul>
+            {% for n in artistas %}
+            <tr>
+              <td>{{ n['Name']}}</td>
+            </tr>
+            {% endfor %}
+          </ul>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

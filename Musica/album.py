@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template
 from . import db
-bp = Blueprint('genero', __name__,url_prefix= '/genero')
+bp = Blueprint('album', __name__,url_prefix= '/album')
 @bp.route('/')
 def albums():
     base_de_datos = db.get_db()
     consulta = """
-        select title from albums
+        select title,AlbumId from albums
         ORDER by title;
     """
     resultado = base_de_datos.execute(consulta)
@@ -19,21 +19,19 @@ def detalle(id):
     select title,AlbumId from albums
     where AlbumId = ?;
     """
-    #m falta cambiar esto
-    #consulta2 = """
-    #SELECT t.name,g.name as Genero, g.GenreId as idG from tracks t
-    #JOIN albums a on t.AlbumId = a.AlbumId
-    #JOIN artists p on a.ArtistId = p.ArtistId
-    #JOIN genres g on t.GenreId = g.GenreId	
-    #WHERE g.GenreId = ?
-    #ORDER BY t.name ASC;
-    #"""
-    #res =con.execute(consulta1,(id,))
-    #genero = res.fetchone()
-    #res =con.execute(consulta2,(id,))
-    #canciones = res.fetchall()
+    
+    consulta2 = """
+    select name,b.Title from artists a
+    join albums b on a.ArtistId = b.ArtistId
+    WHERE b.AlbumId = ?
+    ORDER BY name ASC;
+    """
+    res =con.execute(consulta1,(id,))
+    albums = res.fetchone()
+    res =con.execute(consulta2,(id,))
+    artistas = res.fetchall()
 
-    #pagina = render_template('detalle_genero.html',
-    #genero = genero,
-    #canciones = canciones)
-    #return pagina
+    pagina = render_template('detalle_album.html',
+    albums = albums,
+    artistas = artistas)
+    return pagina
