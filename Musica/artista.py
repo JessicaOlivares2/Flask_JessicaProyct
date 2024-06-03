@@ -21,9 +21,10 @@ def detalle(id):
     """
     
     consulta2 = """
-    select a.ArtistId,name,b.Title as titulo from artists a
+    select a.ArtistId,name,b.Title as titulo,b.AlbumId from artists a
     left join albums b on a.ArtistId = b.ArtistId
-    WHERE a.ArtistId = ?
+    WHERE a.ArtistId = ? 
+    AND AlbumId is not NULL
     ORDER BY name ASC;
     """
     

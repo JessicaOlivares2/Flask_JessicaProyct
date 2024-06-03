@@ -21,17 +21,15 @@ def detalle(id):
     """
     
     consulta2 = """
-    select name,b.Title from artists a
-    join albums b on a.ArtistId = b.ArtistId
-    WHERE b.AlbumId = ?
-    ORDER BY name ASC;
+    SELECT t.name , t.TrackId FROM tracks t
+    WHERE t.AlbumId = ?;  
     """
     res =con.execute(consulta1,(id,))
     albums = res.fetchone()
     res =con.execute(consulta2,(id,))
-    artistas = res.fetchall()
+    canciones = res.fetchall()
 
     pagina = render_template('detalle_album.html',
     albums = albums,
-    artistas = artistas)
+    canciones = canciones)
     return pagina

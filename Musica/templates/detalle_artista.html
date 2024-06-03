@@ -21,7 +21,11 @@
           <ul>
             {% for a in albums %}
             <tr>
-              <td>{{ a['titulo']}}</td>
+              <td>
+                <a href="{{url_for('album.detalle', id=a['AlbumId'])}}"
+                  >{{ a['titulo']}}</a
+                >
+              </td>
             </tr>
             {% endfor %}
           </ul>
