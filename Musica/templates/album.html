@@ -1,11 +1,12 @@
 
-<html>
 {% extends "genero.html" %}
 {% block title %} Albums{% endblock %}
 {% block header %} Albums{% endblock %}
 
-  {% block content %} 
+ 
 
+
+    {% block content %} 
     <ul>
       {% for a in albums %}
       <li>
@@ -13,10 +14,10 @@
         {{ a['Title'] }}
       </li>
       {% endfor %}
-      {% endblock %}
+  
     </ul>
   </body>
-</html>
-<!DOCTYPE html>
+  {% endblock %}
+
 
  

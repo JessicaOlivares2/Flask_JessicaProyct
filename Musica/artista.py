@@ -21,11 +21,12 @@ def detalle(id):
     """
     
     consulta2 = """
-    select a.ArtistId,name,b.Title from artists a
-    join albums b on a.ArtistId = b.ArtistId
-    WHERE b.AlbumId = ?
+    select a.ArtistId,name,b.Title as titulo from artists a
+    left join albums b on a.ArtistId = b.ArtistId
+    WHERE a.ArtistId = ?
     ORDER BY name ASC;
     """
+    
     res =con.execute(consulta1,(id,))
     artista= res.fetchone()
     res =con.execute(consulta2,(id,))

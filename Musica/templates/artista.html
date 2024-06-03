@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>artista</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{{ url_for('static', filename='style.css') }}"/>
-  </head>
-  <body>
-    <h1>artistas</h1>
-  
+
+{% extends "genero.html" %}
+{% block title %} artistas{% endblock %}
+{% block header %}artistas{% endblock %}
+
+{% block content %} 
     <ul>
       {% for a in artistas %}
       <li>
@@ -19,8 +13,5 @@
       {% endfor %}
      
     </ul>
-  </body>
-</html>
-<!DOCTYPE html>
+  {% endblock %}
 
- 
