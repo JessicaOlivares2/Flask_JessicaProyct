@@ -17,3 +17,5 @@ from . import artista
 app.register_blueprint(artista.bp)
 from . import album
 app.register_blueprint(album.bp)
+from . import tracks
+app.register_blueprint(tracks.bp)

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>artista:</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <main>
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>cancion:</th>
+            <th>genero:</th>
+            <th>artista</th>
+            <th>album</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{track['name']}}</td>
+            <td>
+              <a href="{{url_for('genero.detalle', id=track['idG'])}}"
+                >{{ track['Genero']}}</a
+              >
+            </td>
+            <td>
+              <a href="{{url_for('artista.detalle', id=track['idA'])}}"
+                >{{ track['artista']}}</a
+              >
+            </td>
+            <td>
+              <a href="{{url_for('album.detalle', id=track['idAlb'])}}"
+                >{{ track['titulo']}}</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

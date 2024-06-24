@@ -21,7 +21,11 @@
           <ul>
             {% for n in canciones %}
             <tr>
-              <td>{{ n['Name']}}</td>
+              <td>
+                <a href="{{url_for('track.detalle', id=n['TrackId'])}}"
+                  >{{ n['Name']}}</a
+                >
+              </td>
             </tr>
             {% endfor %}
           </ul>
