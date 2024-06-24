@@ -17,7 +17,7 @@ def detalle(id):
     con = db.get_db()
     consulta1 ="""
  
-    SELECT t.name,g.name as Genero,p.name as artista,a.Title as titulo, g.GenreId as idG,p.ArtistId as idA,a.AlbumId as idAlb  from tracks t
+    SELECT t.name,t.Milliseconds,t.Composer,g.name as Genero,p.name as artista,a.Title as titulo, g.GenreId as idG,p.ArtistId as idA,a.AlbumId as idAlb  from tracks t
     JOIN albums a on t.AlbumId = a.AlbumId
     JOIN artists p on a.ArtistId = p.ArtistId
     JOIN genres g on t.GenreId = g.GenreId	

@@ -16,12 +16,15 @@
             <th>cancion:</th>
             <th>genero:</th>
             <th>artista</th>
-            <th>album</th>
+            <th>album:</th>
+            <th>milisegundos</th>
+            <th>compositor</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>{{track['name']}}</td>
+
             <td>
               <a href="{{url_for('genero.detalle', id=track['idG'])}}"
                 >{{ track['Genero']}}</a
@@ -37,6 +40,8 @@
                 >{{ track['titulo']}}</a
               >
             </td>
+            <td>{{track['Milliseconds']}}</td>
+            <td>{{track['Composer']}}</td>
           </tr>
         </tbody>
       </table>
