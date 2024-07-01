@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 from . import db
-bp = Blueprint('album', __name__,url_prefix= '/album')
-@bp.route('/')
+bp = Blueprint('album', __name__,url_prefix= '/album')#el nombre,donde esta definido y la url asociada
+@bp.route('/')#asocia la url con la funcion
 def albums():
     base_de_datos = db.get_db()
     consulta = """
@@ -10,7 +10,7 @@ def albums():
     """
     resultado = base_de_datos.execute(consulta)
     lista_de_resultado = resultado.fetchall()
-    return render_template("album.html",albums=lista_de_resultado)
+    return render_template("album.html",albums=lista_de_resultado)#returna la plantilla del html
 
 @bp.route('/<int:id>')
 def detalle(id):
