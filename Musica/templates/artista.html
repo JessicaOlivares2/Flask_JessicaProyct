@@ -4,6 +4,7 @@
 {% block header %}artistas{% endblock %}
 
 {% block content %} 
+<a href="{{url_for('artista.nuevo')}}">Agregar Artista</a>
     <ul>
       {% for a in artistas %}
       <li>
